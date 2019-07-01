@@ -2,14 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class controllerMovement : MonoBehaviour
+public class movement : MonoBehaviour
 {
 	private Rigidbody2D rb;
 
 
 	//walking
 	public float moveSpeed;
-	private float horizontalInput = 0f;
 
 	//Jumping
 	public Transform feetPos; // the position of the feet to determine weather or not it is on the ground.

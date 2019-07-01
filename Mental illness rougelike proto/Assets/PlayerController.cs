@@ -2,21 +2,29 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
 
-	[SerializeField]
-	private controllerMovement controller;
+	private movement controller;
+	private Shooting shooting;
 
 	private float horizontalInput = 0f;
-
 	private float jumpInput = 0f;
 
-    // Update is called once per frame
-    void Update()
+
+	private void Awake()
+	{
+		controller = transform.GetComponent<movement>();
+		shooting = transform.GetComponent<Shooting>();
+	}
+
+	// Update is called once per frame
+	void Update()
     {
 		horizontalInput = Input.GetAxisRaw("Horizontal");
 		jumpInput = Input.GetAxisRaw("Jump");
+
+		shooting.shoot();
 	}
 
 	private void FixedUpdate()
